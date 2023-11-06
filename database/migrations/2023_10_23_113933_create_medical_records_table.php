@@ -1,9 +1,9 @@
 <?php
 
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
 return new class extends Migration
 {
     /**
@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('medical_records', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+
+            $table->string('service_number');
             $table->string('presenting_complaint');
             $table->string('history_presenting_complaint');
             $table->string('on_direct_questioning');
@@ -36,9 +37,10 @@ return new class extends Migration
             $table->string('excuse_boot');
             $table->string('excuse_shaving');
             $table->string('summary');
-            $table->string('service_number');
+            $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

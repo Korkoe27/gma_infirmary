@@ -19,9 +19,11 @@ return new class extends Migration
             $table->string('surname');
             $table->string('first_name');
             $table->string('other_name')->nullable();
+            $table->string('gender');
             $table->date('date_of_birth');
             $table->string('platoon');
             $table->string('company');
+            $table->string('intake');
             
         });
     }
