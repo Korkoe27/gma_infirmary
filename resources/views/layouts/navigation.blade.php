@@ -61,12 +61,14 @@
                                 <input type="text" class="drop-search p-2 text-gray-600" placeholder="Search.." id="myInput" onkeyup="filterDD('myDropdown','myInput')">
                                 <a href="#" class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i class="fa fa-user fa-fw"></i> Profile</a>
                                 <a href="#" class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i class="fa fa-cog fa-fw"></i> Settings</a>
-                                <div class="border border-gray-800 inline-flex"><i class="fas fa-sign-out-alt fa-fw"></i> 
-                                <x-responsive-nav-link :href="route('logout')"
+                                <div class="border border-gray-800"></div>
+                                <a href="{{ route('logout') }}"  onclick="event.preventDefault();
+                                this.closest('form').submit();" class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i class="fas fa-sign-out-alt fa-fw"></i> Log Out</a>
+                                {{-- <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
-                    </x-responsive-nav-link></div>
+                    </x-responsive-nav-link> --}}
                             </div>
                         </div>
                     </li>
@@ -113,13 +115,6 @@
                                 </span><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Med Records</span>
                         </a>
                     </li>
-                    </li>
-                    <li class="mr-3 flex-1">
-                        <a href="{{ route('medicalRecords.create') }}" class="flex py-1 md:py-3 pl-1 md:pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-red-500">
-                            <span class="material-symbols-outlined h-0 md:pr-3">
-                                post_add
-                                </span><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Add Med Report</span>
-                        </a>
                     </li>
                 </ul>
             </div>

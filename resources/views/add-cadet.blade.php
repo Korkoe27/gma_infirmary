@@ -18,14 +18,14 @@
 
 
 
-        <main class="my-20 ml-12 bg-white flex static">
+        <main class=" ml-12 bg-white flex static">
 
 
 
         <form action="{{ route('patientRecords.store') }}"  id="personnelRecords" method="POST">
             @csrf
 
-    <div class="my-16 flex flex-wrap ">
+    <div class="mt-16 flex flex-wrap ">
 
 
             <div class=" w-full px-4 page md:w-1/2 lg:w-1/3">
@@ -51,7 +51,28 @@
                    <label for="rank" class="mb-[10px] block text-base font-medium text-black">
                    Rank
                    </label>
-                   <input type="text" name="rank" id="rank" required placeholder="Active Input" class="w-full bg-transparent rounded-md border border-primary py-[10px] px-5 text-dark-5 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 disabled:border-gray-2" />
+                   <select name="rank" id="rank" class="block w-full rounded-md border-[1.5px] py-3 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                        <option selected value="null">--Rank--</option>
+                        <option value="Cadet Warrant Officer Class I">Cadet Warrant Officer Class I</option>
+                            <option value="Cadet Warrant Officer Class II">Cadet Warrant Officer Class II</option>
+                            <option value="Cadet Staff Sergeant">Cadet Staff Sergeant</option>
+                            <option value="Cadet Sergeant">Cadet Sergeant</option>
+                            <option value="Cadet Corporal">Cadet Corporal</option>
+                            <option value="Cadet Lance Corporal">Cadet Lance Corporal</option>
+                            <option value="Cadet Private">Cadet Private</option>
+                            <option value="Cadet Warrant Officer Class I">Cadet Warrant Officer Class I</option>
+                            <option value="Cadet Warrant Officer Class II">Cadet Warrant Officer Class II</option>
+                            <option value="Cadet Flight Sergeant">Cadet Flight Sergeant</option>
+                            <option value="Cadet Sergeant">Cadet Sergeant</option>
+                            <option value="Cadet Corporal">Cadet Corporal</option>
+                            <option value="Cadet Leading Aircraftsman">Cadet Leading Aircraftsman</option>
+                            <option value="Cadet Aircraftsman">Cadet Aircraftsman</option>
+                            <option value="Cadet Chief Petty Officer">Cadet Chief Petty Officer</option>
+                            <option value="Cadet Petty Officer Class I">Cadet Petty Officer Class I</option>
+                            <option value="Cadet Petty Officer Class II">Cadet Petty Officer Class II</option>
+                            <option value="Cadet Leading Seaman">Cadet Leading Seaman</option>
+                            <option value="Cadet Seaman">Cadet Seaman</option>
+                   </select>
                 </div>
             </div>
             <div class="w-full px-4 page md:w-1/2 lg:w-1/3">
@@ -84,7 +105,7 @@
                 <div class="mb-12">
                     <label for="gender" class="mb-[10px]  block text-base font-medium text-black">Gender</label>
                     <select name="gender" id="gender" class="block w-full rounded-md border-[1.5px] py-3 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                        <option selected>--Gender--</option>
+                        <option selected value="null">--Gender--</option>
                         <option value="Female">Female</option>
                         <option value="Male">Male</option>
                     </select>
@@ -112,9 +133,9 @@
 
             <div class="w-full px-4 page md:w-1/2 lg:w-1/3">
                 <div class="mb-12">
-                    <label for="intake" class="mb-[10px]  block text-base font-medium text-black">Intake</label>
+                    <label for="intake" class="mb-[10px] block text-base font-medium text-black">Intake</label>
                     <select name="intake" id="intake" class="block w-full rounded-md border-[1.5px] py-3 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                        <option selected>...</option>
+                        <option selected value="null">...</option>
                         <option value="RCC">Regular Career Course</option>
                         <option value="SSC/SD">Short Service Commision / Special Duty</option>
                         <option value="SMI">Special Medical Intake</option>
@@ -125,12 +146,11 @@
             
 
 
-            
-
+        
         </div>
 
             <div class="flex w-full mx-auto justify-center">
-                <button type="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2  w-1/5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Submit</button>
+                <button type="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5   w-1/5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Submit</button>
             </div>
 
 
@@ -156,7 +176,56 @@
 
 
 
+<script>
 
+
+
+    // function checkSelect(){
+    //     const rankSelect = document.getElementById("rank");
+    //     const genderSelect = document.getElementById("gender");
+    //     const intakeSelect = document.getElementById("intake");
+
+    //     const selectLists = [
+    //         rankSelect,
+    //         genderSelect,
+    //         intakeSelect
+    //     ];
+
+
+    //     selectLists.forEach(element => {
+            
+    //     });
+    // }
+
+    document.getElementById('personnelRecords').onsubmit = function(event) {
+
+
+        const rankSelect = document.getElementById("rank");
+        const genderSelect = document.getElementById("gender");
+        const intakeSelect = document.getElementById("intake");
+
+        const selectLists = [
+            rankSelect,
+            genderSelect,
+            intakeSelect
+        ];
+
+        let isValid = true;
+
+        selectLists.forEach(selectId => {
+            const = document.getElementById('selectId');
+
+
+            if(sel)
+        });
+        
+        
+
+    }
+     
+
+
+</script>
 
 
 
