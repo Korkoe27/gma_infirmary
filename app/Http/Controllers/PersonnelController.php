@@ -36,8 +36,15 @@ class PersonnelController extends Controller
     public function store(Request $request)
     {
         //
+
         $data = new personnel_info();
 
+
+        $request->validate([
+
+            'image_path' => "required|mimes:png,jpg"
+            
+        ]);
 
 
         $data -> service_number = $request -> input('service_number');
@@ -50,6 +57,7 @@ class PersonnelController extends Controller
         $data -> platoon = $request -> input('platoon');
         $data -> company = $request -> input('company');
         $data -> intake = $request -> input('intake');
+        $data -> image_path = $request -> input('image_path');
 
 
      

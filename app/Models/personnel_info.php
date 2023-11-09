@@ -23,7 +23,8 @@ class personnel_info extends Model
         'date_of_birth',
         'platoon',
         'company',
-        'intake'
+        'intake',
+        'image_path'
     ];
 
 

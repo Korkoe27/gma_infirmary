@@ -22,7 +22,7 @@
 
 
 
-        <form action="{{ route('patientRecords.store') }}"  id="personnelRecords" method="POST">
+        <form action="{{ route('patientRecords.store') }}" enctype="multipart/form-data"  id="personnelRecords" method="POST">
             @csrf
 
     <div class="mt-16 flex flex-wrap ">
@@ -143,7 +143,14 @@
                 </div>
             </div>
 
-            
+            <div class="w-full px-4 page md:w-1/2 lg:w-1/3">
+                <div class="mb-12">
+                   <label for="image" class="mb-[10px] block text-base font-medium text-black">
+                    Passport Size Photo
+                   </label>
+                   <input type="file" name="passportImage" id="image"class="w-full bg-transparent rounded-md border border-primary py-[10px] px-5 text-dark-5 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 disabled:border-gray-2" />
+                </div>
+            </div>
 
 
         
@@ -197,31 +204,38 @@
     //     });
     // }
 
-    document.getElementById('personnelRecords').onsubmit = function(event) {
+    // document.getElementById('personnelRecords').onsubmit = function(event) {
+
+    //     break;
+    //     const rankSelect = document.getElementById("rank");
+    //     const genderSelect = document.getElementById("gender");
+    //     const intakeSelect = document.getElementById("intake");
+
+    //     const selectLists = [
+    //         rankSelect,
+    //         genderSelect,
+    //         intakeSelect
+    //     ];
+
+    //     let isValid = true;
+
+    //     selectLists.forEach(selectId => {
+    //         const selectElement = document.getElementById('selectId');
 
 
-        const rankSelect = document.getElementById("rank");
-        const genderSelect = document.getElementById("gender");
-        const intakeSelect = document.getElementById("intake");
+    //         if(selectElement.value === 'null') {
+    //             isValid = false;
+    //         }
+    //     });
 
-        const selectLists = [
-            rankSelect,
-            genderSelect,
-            intakeSelect
-        ];
-
-        let isValid = true;
-
-        selectLists.forEach(selectId => {
-            const = document.getElementById('selectId');
-
-
-            if(sel)
-        });
+    //     if(!isValid) {
+    //         alert("Please select an option in all select fields before submitting. Do not select the first option.");
+    //         event.preventDefault();
+    //     }
         
         
 
-    }
+    // }
      
 
 
