@@ -24,7 +24,7 @@ class personnel_info extends Model
         'platoon',
         'company',
         'intake',
-        'image_path'
+        'cadet_image'
     ];
 
 

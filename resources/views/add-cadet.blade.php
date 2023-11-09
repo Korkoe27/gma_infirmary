@@ -52,26 +52,12 @@
                    Rank
                    </label>
                    <select name="rank" id="rank" class="block w-full rounded-md border-[1.5px] py-3 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                        <option selected value="null">--Rank--</option>
-                        <option value="Cadet Warrant Officer Class I">Cadet Warrant Officer Class I</option>
-                            <option value="Cadet Warrant Officer Class II">Cadet Warrant Officer Class II</option>
-                            <option value="Cadet Staff Sergeant">Cadet Staff Sergeant</option>
-                            <option value="Cadet Sergeant">Cadet Sergeant</option>
-                            <option value="Cadet Corporal">Cadet Corporal</option>
-                            <option value="Cadet Lance Corporal">Cadet Lance Corporal</option>
-                            <option value="Cadet Private">Cadet Private</option>
-                            <option value="Cadet Warrant Officer Class I">Cadet Warrant Officer Class I</option>
-                            <option value="Cadet Warrant Officer Class II">Cadet Warrant Officer Class II</option>
-                            <option value="Cadet Flight Sergeant">Cadet Flight Sergeant</option>
-                            <option value="Cadet Sergeant">Cadet Sergeant</option>
-                            <option value="Cadet Corporal">Cadet Corporal</option>
-                            <option value="Cadet Leading Aircraftsman">Cadet Leading Aircraftsman</option>
-                            <option value="Cadet Aircraftsman">Cadet Aircraftsman</option>
-                            <option value="Cadet Chief Petty Officer">Cadet Chief Petty Officer</option>
-                            <option value="Cadet Petty Officer Class I">Cadet Petty Officer Class I</option>
-                            <option value="Cadet Petty Officer Class II">Cadet Petty Officer Class II</option>
-                            <option value="Cadet Leading Seaman">Cadet Leading Seaman</option>
-                            <option value="Cadet Seaman">Cadet Seaman</option>
+                        <option selected value=" ">--Rank--</option>
+                        <option value="N/Cdt">N/Cdt</option>
+                            <option value="O/Cdt">O/Cdt</option>
+                            <option value="S/Cdt">S/Cdt</option>
+                            <option value="Mid">Mid</option>
+                            <option value="F/Cdt">F/Cdt</option>
                    </select>
                 </div>
             </div>
@@ -98,7 +84,7 @@
                    <label for="other_name" class="mb-[10px] block text-base font-medium text-black">
                    Other Name
                    </label>
-                   <input type="text" id="other_name" name="other_name" required placeholder="Other Name" class="w-full bg-transparent rounded-md border border-primary py-[10px] px-5 text-dark-5 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 disabled:border-gray-2" />
+                   <input type="text" id="other_name" name="other_name" placeholder="Other Name" class="w-full bg-transparent rounded-md border border-primary py-[10px] px-5 text-dark-5 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 disabled:border-gray-2" />
                 </div>
             </div>
             <div class="w-full px-4 page md:w-1/2 lg:w-1/3">
@@ -148,7 +134,7 @@
                    <label for="image" class="mb-[10px] block text-base font-medium text-black">
                     Passport Size Photo
                    </label>
-                   <input type="file" name="passportImage" id="image"class="w-full bg-transparent rounded-md border border-primary py-[10px] px-5 text-dark-5 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 disabled:border-gray-2" />
+                   <input type="file" name="cadet_image" id="image"class="w-full bg-transparent rounded-md border border-primary py-[10px] px-5 text-dark-5 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 disabled:border-gray-2" />
                 </div>
             </div>
 

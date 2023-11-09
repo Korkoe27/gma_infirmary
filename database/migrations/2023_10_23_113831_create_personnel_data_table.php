@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('platoon');
             $table->string('company');
             $table->string('intake');
-            $table->string('image_path');
+            $table->string('cadet_image');
 
             
         });
@@ -35,10 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-
-        Schema::table('personnel_data', function (Blueprint $table) {
-            $table->dropColumn('image_path');
-        });
         Schema::dropIfExists('personnel_data');
     }
 };

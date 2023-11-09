@@ -39,13 +39,15 @@ class PersonnelController extends Controller
 
         $data = new personnel_info();
 
+        if($request->hasFile('cadet_image')){
+            $file = $request->file('cadet_image');
+                $ext = $file->getClientOriginalExtension();
+                $filename = $request->service_number. '-' . $request->surname . '-' . $request->first_name . '.' . $ext;
+                $file->move('images', $filename);
+                $data->cadet_image = $filename;
 
-        $request->validate([
-
-            'image_path' => "required|mimes:png,jpg"
-            
-        ]);
-
+        }
+        
 
         $data -> service_number = $request -> input('service_number');
         $data -> rank = $request -> input('rank');
@@ -57,9 +59,6 @@ class PersonnelController extends Controller
         $data -> platoon = $request -> input('platoon');
         $data -> company = $request -> input('company');
         $data -> intake = $request -> input('intake');
-        $data -> image_path = $request -> input('image_path');
-
-
      
         $data -> save();
 
