@@ -70,7 +70,7 @@
                 </td>
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-green-600 dark:text-green-500 hover:underline">View</a>
+                    <a href="{{ route('patientRecords.show', [$cadet->service_number]) }}" class="font-medium text-green-600 dark:text-green-500 hover:underline">View</a>
                 </td>
                 </td>
                 <td class="px-6 py-4">

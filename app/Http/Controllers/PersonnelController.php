@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\personnel_info;
+use App\Models\PersonnelInfo;
+use App\Models\MedicalRecord;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -15,7 +16,7 @@ class PersonnelController extends Controller
     public function index()
     {
         //
-        $cadets = personnel_info::all();
+        $cadets = PersonnelInfo::latest()->paginate(50);
         return view('cadets',compact('cadets'));
     }
 
@@ -37,7 +38,7 @@ class PersonnelController extends Controller
     {
         //
 
-        $data = new personnel_info();
+        $data = new PersonnelInfo();
 
         if($request->hasFile('cadet_image')){
             $file = $request->file('cadet_image');
@@ -70,9 +71,12 @@ class PersonnelController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
         //
+        $showCadet = PersonnelInfo::with('record')->where('service_number', $id)->first();
+        return view('view-cadet-report',compact('showCadet'));
+        // return dd($id);
     }
 
     /**

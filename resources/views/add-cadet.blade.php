@@ -52,7 +52,7 @@
                    Rank
                    </label>
                    <select name="rank" id="rank" class="block w-full rounded-md border-[1.5px] py-3 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                        <option selected value=" ">--Rank--</option>
+                        <option selected value="">--Rank--</option>
                         <option value="N/Cdt">N/Cdt</option>
                             <option value="O/Cdt">O/Cdt</option>
                             <option value="S/Cdt">S/Cdt</option>
@@ -91,7 +91,7 @@
                 <div class="mb-12">
                     <label for="gender" class="mb-[10px]  block text-base font-medium text-black">Gender</label>
                     <select name="gender" id="gender" class="block w-full rounded-md border-[1.5px] py-3 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                        <option selected value="null">--Gender--</option>
+                        <option selected value="">--Gender--</option>
                         <option value="Female">Female</option>
                         <option value="Male">Male</option>
                     </select>
@@ -121,7 +121,7 @@
                 <div class="mb-12">
                     <label for="intake" class="mb-[10px] block text-base font-medium text-black">Intake</label>
                     <select name="intake" id="intake" class="block w-full rounded-md border-[1.5px] py-3 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-yellow-600 sm:max-w-xs sm:text-sm sm:leading-6">
-                        <option selected value="null">...</option>
+                        <option selected value="">--Intake--</option>
                         <option value="RCC">Regular Career Course</option>
                         <option value="SSC/SD">Short Service Commision / Special Duty</option>
                         <option value="SMI">Special Medical Intake</option>

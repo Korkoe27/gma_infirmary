@@ -20,14 +20,16 @@ Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/index', function () {
-    return view('index');
-})->middleware(['auth', 'verified'])->name('index');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/index', function () {
+//     return view('index');
+// })->middleware(['auth', 'verified'])->name('index');
 
 Route::resource('patientRecords', PersonnelController::class)->middleware(['auth', 'verified']);
+
+// Route::get('/cadet-report/{id}',[PersonnelController::class,'show']);
 
 Route::resource('medicalRecords', MedicalRecordsController::class)->middleware(['auth', 'verified']);
 

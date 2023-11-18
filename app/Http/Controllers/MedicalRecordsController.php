@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\medical_records;
-use App\Models\personnel_info;
+use App\Models\MedicalRecord;
+use App\Models\PersonnelInfo;
 
 class MedicalRecordsController extends Controller
 {
@@ -23,7 +23,7 @@ class MedicalRecordsController extends Controller
     public function create()
     {
         //
-        $cadets= personnel_info::all();
+        $cadets= PersonnelInfo::all();
         return view('add-Cadet-Records',compact('cadets'));
     }
 
@@ -35,7 +35,7 @@ class MedicalRecordsController extends Controller
         //
 
         
-        $medical_records = new medical_records();
+        $medical_records = new MedicalRecord();
            
         $medical_records -> service_number = $request -> input('service_number');
         $medical_records -> presenting_complaint = $request -> input('presenting_complaint');
@@ -73,9 +73,12 @@ class MedicalRecordsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
-        //
+        // //
+        // $showMedRecords = medical_records::all();
+        // return view('view-cadet-report',compact('showMedRecords'));
+
     }
 
     /**
