@@ -47,7 +47,7 @@
             @foreach ($cadets as $cadet )
             <tr class="bg-white border-b dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap dark:text-black">
-                   {{ $cadet-> service_number}}
+                    {{ $cadet-> service_number}}
                 </th>
                 <td class="px-6 py-4 text-black">
                     {{ $cadet-> rank }}
@@ -56,13 +56,14 @@
                     {{ $cadet-> surname }}
                 </td>
                 <td class="px-6 py-4 text-black">
-                   {{ $cadet-> first_name}}
+                    {{ $cadet-> first_name}}
                 </td>
                 <td class="px-6 py-4 text-black">
                    {{ $cadet -> intake}}
                 </td>
                 <td class="px-6 py-4">
-                    <a href="{{ route('medicalRecords.create') }}" class="font-medium text-yellow-600 dark:text-yellow-500 hover:underline">Add Med Records</a>
+                    <a href="{{ route('medicalRecords.create',[$cadet->service_number.$cadet->id]) }}" class="font-medium text-yellow-600 dark:text-yellow-500 hover:underline">Add Med Records</a> 
+                    
                 </td>
                 </td>
                 <td class="px-6 py-4">
@@ -70,6 +71,7 @@
                 </td>
                 </td>
                 <td class="px-6 py-4">
+                    
                     <a href="{{ route('patientRecords.show', [$cadet->service_number]) }}" class="font-medium text-green-600 dark:text-green-500 hover:underline">View</a>
                 </td>
                 </td>

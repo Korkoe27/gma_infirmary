@@ -32,38 +32,35 @@ class MedicalRecordsController extends Controller
      */
     public function store(Request $request)
     {
-        //
 
+        $validatedData = $request->validate([
+            'service_number' => 'required',
+            'presenting_complaint' => 'required',
+            'history_presenting_complaint' => 'required',
+            'on_direct_questioning' => 'required',
+            'past_medical_history' => 'required',
+            'drug_history' => 'required',
+            'family_history' => 'required',
+            'social_history' => 'required',
+            'on_examination' => 'required',
+            'cardiovascular_system' => 'required',
+            'respiratory_system' => 'required',
+            'abdominal_system' => 'required',
+            'central_nervous_system' => 'required',
+            'musculoskeletal_system' => 'required',
+            'diagnosis' => 'required',
+            'treatment' => 'required',
+            'referral' => 'required',
+            'excuse_physical_training' => 'required',
+            'excuse_duty' => 'required',
+            'excuse_riffle_drill' => 'required',
+            'excuse_boot' => 'required',
+            'excuse_shaving' => 'required',
+            'summary' => 'required'
+        ]);
+
+        $saveRecords = MedicalRecord::create($validatedData);
         
-        $medical_records = new MedicalRecord();
-           
-        $medical_records -> service_number = $request -> input('service_number');
-        $medical_records -> presenting_complaint = $request -> input('presenting_complaint');
-        $medical_records -> history_presenting_complaint = $request -> input('history_presenting_complaint');
-        $medical_records -> on_direct_questioning = $request -> input('on_direct_questioning');
-        $medical_records -> past_medical_history = $request -> input('past_medical_history');
-        $medical_records -> drug_history = $request -> input('drug_history');
-        $medical_records -> family_history = $request -> input('family_history');
-        $medical_records -> social_history = $request -> input('social_history');
-        $medical_records -> on_examination = $request -> input('on_examination');
-        $medical_records -> cardiovascular_system = $request -> input('cardiovascular_system');
-        $medical_records -> respiratory_system = $request -> input('respiratory_system');
-        $medical_records -> abdominal_system = $request -> input('abdominal_system');
-        $medical_records -> central_nervous_system = $request -> input('central_nervous_system');
-        $medical_records -> musculoskeletal_system = $request -> input('musculoskeletal_system');
-        $medical_records -> diagnosis = $request -> input('diagnosis');
-        $medical_records -> treatment = $request -> input('treatment');
-        $medical_records -> referral = $request -> input('referral');
-        $medical_records -> excuse_physical_training = $request -> input('excuse_physical_training');
-        $medical_records -> excuse_duty = $request -> input('excuse_duty');
-        $medical_records -> excuse_riffle_drill = $request -> input('excuse_riffle_drill');
-        $medical_records -> excuse_boot = $request -> input('excuse_boot');
-        $medical_records -> excuse_shaving = $request -> input('excuse_shaving');
-        $medical_records -> summary = $request -> input('summary');
-
-        
-        $medical_records -> save();
-
 
         
         return redirect(route('dashboard'));

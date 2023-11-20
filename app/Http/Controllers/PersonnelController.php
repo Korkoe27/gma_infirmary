@@ -17,6 +17,8 @@ class PersonnelController extends Controller
     {
         //
         $cadets = PersonnelInfo::latest()->paginate(50);
+        // $c = PersonnelInfo::where('service_number', '522')->first();
+        // dd($c->record);
         return view('cadets',compact('cadets'));
     }
 
@@ -37,34 +39,51 @@ class PersonnelController extends Controller
     public function store(Request $request)
     {
         //
+     $upload = $request->file('cadet_image');
 
-        $data = new PersonnelInfo();
+     $fileName = $request -> service_number . '-' . $request-> surname . '-' . $request->first_name . '.' . $upload->getClientOriginalExtension();
 
-        if($request->hasFile('cadet_image')){
-            $file = $request->file('cadet_image');
-                $ext = $file->getClientOriginalExtension();
-                $filename = $request->service_number. '-' . $request->surname . '-' . $request->first_name . '.' . $ext;
-                $file->move('images', $filename);
-                $data->cadet_image = $filename;
+     $dir = public_path('images');
 
-        }
+     $upload->move($dir, $fileName);
+
+        $validateData = $request->validate([
+            'service_number' => 'required',
+            'rank' => 'required',
+            'surname' => 'required',
+            'first_name' => 'required',
+            'other_name' => 'required',
+            'gender' => 'required',
+            'date_of_birth' => 'required',
+            'platoon' => 'required',
+            'company' => 'required',
+            'intake' => 'required',
+            'cadet_image' => 'required'
+     ]);
+
+
+
+
+
+    //  $photo = new PersonnelInfo();
+    //     if($request->hasFile('cadet_image')){
+    //         $file = $request->file('cadet_image');
+    //             $ext = $file->getClientOriginalExtension();
+    //             $filename = $request->service_number. '-' . $request->surname . '-' . $request->first_name . '.' . $ext;
+    //             $file->move('images', $filename);
+    //             $filename= $photo->cadet_image;
+    //         $photo->save();
+    //     }
         
-
-        $data -> service_number = $request -> input('service_number');
-        $data -> rank = $request -> input('rank');
-        $data -> surname = $request -> input('surname');
-        $data -> first_name = $request -> input('first_name');
-        $data -> other_name = $request -> input('other_name');
-        $data -> gender = $request -> input('gender');
-        $data -> date_of_birth = $request -> input('date_of_birth');
-        $data -> platoon = $request -> input('platoon');
-        $data -> company = $request -> input('company');
-        $data -> intake = $request -> input('intake');
-     
-        $data -> save();
+   
 
 
-        return redirect(route('dashboard'));
+
+
+
+        $saveCadet = PersonnelInfo::create($validateData);
+
+        return redirect(route('patientRecords.index'));
 
     }
 

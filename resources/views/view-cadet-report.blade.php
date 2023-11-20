@@ -44,6 +44,8 @@
         </div>
     </div>
 
+@if ($showCadet->record)
+    
     <div class="medReport mx-4">
         <div>
             <p>{{ $showCadet->record->presenting_complaint }}</p>
@@ -109,6 +111,10 @@
             <p>{{ $showCadet->record->summary }}</p>
         </div>
     </div>
+@else
+    <p>No medical records</p>
+@endif
+
 
 
 
